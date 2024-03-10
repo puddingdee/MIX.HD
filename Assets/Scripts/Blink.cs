@@ -30,9 +30,9 @@ public class Blink : MonoBehaviour
         t += 1f * Time.deltaTime;
 
         float intensity = Mathf.Lerp(minimum, maximum, t);
-        intensity = intensity - (0.4169F);
-        //mat.SetColor("_EmissionColor", startColor * Mathf.Pow(2f, intensity));
-        mat.SetColor("_EmissionColor", new Color(0.4f, 0.1f, intensity, Mathf.Pow(2.0f, intensity)));
+        
+        mat.SetFloat("_EmissiveIntensity", Mathf.Pow(2f, intensity));
+        //mat.SetColor("_EmissionColor", new Color(0.4f, 0.1f, 0, Mathf.Pow(2.0f, intensity)));
         
         if (t > 1.0f)
         {
