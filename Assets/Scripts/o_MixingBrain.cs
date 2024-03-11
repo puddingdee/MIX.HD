@@ -12,6 +12,7 @@ public class o_MixingBrain : MonoBehaviour
     [SerializeField] GameObject dlm2;
     [SerializeField] GameObject dlm3;
     [SerializeField] GameObject dlm4;
+    [SerializeField] int dlmWeight;
 
     [SerializeField] GameObject dlt1;
     [SerializeField] GameObject dlt2;
@@ -21,11 +22,15 @@ public class o_MixingBrain : MonoBehaviour
     [SerializeField] GameObject dlt2light;
     [SerializeField] GameObject dlt3light;
     [SerializeField] GameObject dlt4light;
+    [SerializeField] int dltWeight;
+
 
     [SerializeField] GameObject dist1;
     [SerializeField] GameObject dist2;
     [SerializeField] GameObject dist3;
     [SerializeField] GameObject dist4;
+    [SerializeField] int distWeight;
+
 
     [SerializeField] GameObject ex1;
     [SerializeField] GameObject ex2;
@@ -35,25 +40,36 @@ public class o_MixingBrain : MonoBehaviour
     [SerializeField] GameObject exW2;
     [SerializeField] GameObject exW3;
     [SerializeField] GameObject exW4;
+    [SerializeField] int exWeight;
+
 
     [SerializeField] GameObject fold1;
     [SerializeField] GameObject fold2;
     [SerializeField] GameObject fold3;
     [SerializeField] GameObject fold4;
+    [SerializeField] int foldWeight;
+
 
     [SerializeField] GameObject gain1;
     [SerializeField] GameObject gain2;
     [SerializeField] GameObject gain3;
     [SerializeField] GameObject gain4;
+    [SerializeField] int gainWeight;
+
 
     [SerializeField] GameObject cut1;
     [SerializeField] GameObject cut2;
     [SerializeField] GameObject cut3;
     [SerializeField] GameObject cut4;
+    [SerializeField] int cutWeight;
+
 
     [SerializeField] GameObject clip;
+    [SerializeField] int clipWeight;
     [SerializeField] GameObject clipLight;
     [SerializeField] GameObject cross;
+    [SerializeField] int crossWeight;
+
 
     [SerializeField] GameObject selecticle;
     [SerializeField] GameObject adjusticle;
@@ -66,6 +82,8 @@ public class o_MixingBrain : MonoBehaviour
     [SerializeField] GameObject g_inspecticle;
     [SerializeField] GameObject soundCheck;
     [SerializeField] GameObject soundCheckInspecticle;
+
+    [SerializeField] GameObject backToMenu;
 
     [SerializeField] GameObject lightSwitch;
     [SerializeField] GameObject darkticle;
@@ -96,6 +114,7 @@ public class o_MixingBrain : MonoBehaviour
     private CsoundUnity csound;
 
     public bool isCross = false;
+    public bool isInspecting = false;
 
     [SerializeField] Grader grader;
     
@@ -158,7 +177,7 @@ public class o_MixingBrain : MonoBehaviour
             {
                 
                 ToggleParam(currentParam);
-                grader.epicValue += 1;
+                grader.epicValue += dlmWeight;
                 Debug.Log(grader.epicValue);
             }
             else if (currentParam == dlt1 || currentParam == dlt2 || currentParam == dlt3 || currentParam == dlt4)
@@ -166,7 +185,7 @@ public class o_MixingBrain : MonoBehaviour
 
                 StartCoroutine(DialDLT(currentParam));
                 adjusticle.SetActive(true);
-                grader.epicValue += 1;
+                grader.epicValue -= dltWeight;
                 Debug.Log(grader.epicValue);
             }
             else if (currentParam == dist1 || currentParam == dist2 || currentParam == dist3 || currentParam == dist4)
@@ -174,14 +193,14 @@ public class o_MixingBrain : MonoBehaviour
 
                 StartCoroutine(DialDist(currentParam));
                 adjusticle.SetActive(true);
-                grader.epicValue += 5;
+                grader.epicValue += distWeight;
                 Debug.Log(grader.epicValue);
             }
             else if (currentParam == ex1 || currentParam == ex2 || currentParam == ex3 || currentParam == ex4)
             {
 
                 ToggleParam(currentParam);
-                grader.epicValue += 2;
+                grader.epicValue += exWeight;
                 Debug.Log(grader.epicValue);
             }
             else if (currentParam == fold1 || currentParam == fold2 || currentParam == fold3 || currentParam == fold4)
@@ -189,7 +208,7 @@ public class o_MixingBrain : MonoBehaviour
 
                 StartCoroutine(DialFold(currentParam));
                 adjusticle.SetActive(true);
-                grader.epicValue += 3;
+                grader.epicValue += foldWeight;
                 Debug.Log(grader.epicValue);
             }
             else if (currentParam == gain1 || currentParam == gain2 || currentParam == gain3 || currentParam == gain4)
@@ -204,37 +223,44 @@ public class o_MixingBrain : MonoBehaviour
 
                 StartCoroutine(DialCut(currentParam));
                 adjusticle.SetActive(true);
-                grader.epicValue -= 1;
+                grader.epicValue -= cutWeight;
                 Debug.Log(grader.epicValue);
             }
             else if (currentParam == clip)
             {
 
                 ToggleParam(currentParam);
-                grader.epicValue += 5;
+                grader.epicValue += clipWeight;
                 Debug.Log(grader.epicValue);
             }
             else if (currentParam == cross)
             {
 
                 ToggleParam(currentParam);
-                grader.epicValue -= 50;
+                grader.epicValue += crossWeight;
                 Debug.Log(grader.epicValue);
             }
             else if (currentParam == o_shownote)
             {
+                isInspecting = true;
                 o_inspecticle.SetActive(true);
             }
             else if (currentParam == s_shownote)
             {
+                isInspecting = true;
+
                 s_inspecticle.SetActive(true);
             }
             else if (currentParam == g_shownote)
             {
+                isInspecting = true;
+
                 g_inspecticle.SetActive(true);
             }
             else if (currentParam == soundCheck)
             {
+                isInspecting = true;
+
                 soundCheckInspecticle.SetActive(true);
             }
             else if (currentParam == lightSwitch)
@@ -261,10 +287,22 @@ public class o_MixingBrain : MonoBehaviour
         }
         if (mouse.rightButton.wasPressedThisFrame)
         {
-            o_inspecticle.SetActive(false);
-            s_inspecticle.SetActive(false) ;
-            g_inspecticle.SetActive(false ) ;
-            soundCheckInspecticle.SetActive(false );
+            if (!isInspecting)
+            {
+                backToMenu.SetActive(true);
+                isInspecting = true;
+            }
+            else
+            {
+                o_inspecticle.SetActive(false);
+                s_inspecticle.SetActive(false);
+                g_inspecticle.SetActive(false);
+                soundCheckInspecticle.SetActive(false);
+                backToMenu.SetActive(false);
+
+                isInspecting = false;
+            }
+
         }
         
     }

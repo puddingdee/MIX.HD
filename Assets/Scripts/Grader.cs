@@ -21,6 +21,10 @@ public class Grader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (epicValue < 0)
+        {
+            epicValue = 0;
+        }
         epicDisparity = targetEpicness - epicValue;
 
     }
