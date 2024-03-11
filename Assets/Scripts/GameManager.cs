@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public float o_BPM = 186;
+    public float o_TotalSongTime = 139;
+
     // Start is called before the first frame update
     void Start()    
     {
