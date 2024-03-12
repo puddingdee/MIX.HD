@@ -5953,7 +5953,7 @@ MonoBehaviour:
   shakeIntensity: 0
   workingIntensity: 0
   intensityMultiplier: 0
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   bassSamples:
   - 0
   - 0
@@ -6019,6 +6019,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  speakerL: {fileID: 1820030385}
   csoundInit: 0
 --- !u!114 &330585549
 MonoBehaviour:
@@ -16967,7 +16968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d20258c641c94f0ea3dc32cfe3de904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logCsoundOutput: 0
+  logCsoundOutput: 1
   mute: 0
   processClipAudio: 0
   loudVolumeWarning: 1
@@ -36097,7 +36098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!1 &5803270474378325146
@@ -37750,7 +37751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79844cb688e56494e854238b4ef82490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!23 &6406728390395377108
@@ -38182,7 +38183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!23 &6541393442551678501
@@ -38334,7 +38335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!23 &6559241910604788752
@@ -38859,7 +38860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79844cb688e56494e854238b4ef82490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!33 &6775459001000051211
@@ -40571,7 +40572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!1 &7377861394828436764
@@ -41237,7 +41238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!4 &7710560267286583816
@@ -41356,7 +41357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!1 &7762889362786031461
@@ -42047,7 +42048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!23 &8056096854880751012
@@ -42475,7 +42476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!4 &8190700394789149448
@@ -43108,7 +43109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!33 &8408232557547297581
@@ -43338,7 +43339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!23 &8540681035781394831
@@ -43805,7 +43806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!23 &8761314304287918861
@@ -43979,7 +43980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79844cb688e56494e854238b4ef82490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!33 &8779640061169402060
@@ -44101,7 +44102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!33 &8859796906503734920
@@ -44659,7 +44660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79844cb688e56494e854238b4ef82490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!33 &9046587739900460769

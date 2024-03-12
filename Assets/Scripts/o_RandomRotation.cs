@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class o_RandomRotation : MonoBehaviour
 {
-    [SerializeField] o_MixingBrain mixBr;
+    [SerializeField] MixingBrain mixBr;
     [SerializeField] Grader grader;
     [SerializeField] GameManager gameManager;
     private float upperRange;

@@ -134,7 +134,7 @@ public class MixingBrain : MonoBehaviour
     void Start()
     {
         csound = GetComponent<CsoundUnity>();
-
+        StartCoroutine(WaitForMessage());
 
         DLM_Y1 = dlm1.transform.position.y;
         DLM_Y2 = dlm2.transform.position.y;

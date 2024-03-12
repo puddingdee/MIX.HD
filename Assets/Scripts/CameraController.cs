@@ -21,11 +21,13 @@ public class CameraController : MonoBehaviour
     [SerializeField] float workingIntensity;
     [SerializeField] float intensityMultiplier;
     
-    [SerializeField] private o_MixingBrain mixBr;
+    [SerializeField] private MixingBrain mixBr;
 
     private AudioSource bassSource;
     [SerializeField] private float[] bassSamples = new float[64];
+    [SerializeField] private GameObject speakerL;
     private CsoundUnity csound;
+    private CsoundUnityBridge bridge;
     
     private Vector3 staticPos;
 
@@ -34,11 +36,13 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        staticPos = transform.position;
         bassSource = GetComponent<AudioSource>();
-        StartCoroutine(WaitForCSound());
-
+        csound = speakerL.GetComponent<CsoundUnity>();
+        bridge = speakerL.GetComponent<CsoundUnityBridge>();
+        staticPos = transform.position;
+        
+        //StartCoroutine(WaitForCSound());
+        StartCoroutine(WaitForMessage());
         
         
     }
@@ -48,7 +52,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-
+        
        
         rotationX += Input.GetAxis("Mouse Y");
             rotationY += Input.GetAxis("Mouse X");
@@ -96,6 +100,20 @@ public class CameraController : MonoBehaviour
 
         while (!csoundInit)
         {
+            yield return new WaitForEndOfFrame();
+        }
+        yield return new WaitForSeconds(3.3f);
+        bassSource.Play();
+        Debug.Log("playing bass");
+    }
+
+    private IEnumerator WaitForMessage()
+    {
+        Debug.Log("here");
+        while (bridge.GetCsoundMessage() != "new alloc for instr 2:")
+        {
+            Debug.Log(bridge.GetCsoundMessage());
+            
             yield return new WaitForEndOfFrame();
         }
         yield return new WaitForSeconds(3.3f);

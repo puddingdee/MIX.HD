@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AudienceAnim : MonoBehaviour
 {
-    [SerializeField] o_MixingBrain mixBr;
+    [SerializeField] MixingBrain mixBr;
     [SerializeField] Grader grader;
     [SerializeField] GameManager gameManager;
 
