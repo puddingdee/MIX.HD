@@ -5686,7 +5686,6 @@ GameObject:
   - component: {fileID: 330585546}
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
-  - component: {fileID: 330585547}
   - component: {fileID: 330585549}
   - component: {fileID: 330585550}
   - component: {fileID: 330585551}
@@ -5773,92 +5772,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 155.92, z: 0}
---- !u!114 &330585547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa90ae13c795230468d38e335f0d1eb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camOffset: {x: 0, y: 0, z: 0}
-  focalPoint: {fileID: 0}
-  minVerticalAngle: -65
-  maxVerticalAngle: 65
-  shakeIntensity: 1
-  workingIntensity: 0
-  intensityMultiplier: 0
-  mixBr: {fileID: 0}
-  bassSamples:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  csoundInit: 0
 --- !u!114 &330585549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6003,7 +5916,7 @@ MonoBehaviour:
   shakeIntensity: 0
   workingIntensity: 0.5
   intensityMultiplier: 0
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   bassSamples:
   - 0
   - 0
@@ -6069,6 +5982,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  speakerL: {fileID: 1820030385}
   csoundInit: 0
 --- !u!82 &330585551
 AudioSource:
@@ -7888,7 +7802,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da69b7052e3fa6b49a54ba3098ee7346, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7896,7 +7810,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.70540994, g: 0.8301887, b: 0.16838734, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7952,7 +7866,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &617588444
@@ -7978,10 +7892,10 @@ RectTransform:
   m_Father: {fileID: 96548496}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 544.45, y: 0}
-  m_SizeDelta: {x: 1088.9, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -544.44995, y: 0}
+  m_SizeDelta: {x: 1088.8999, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &632598550
 GameObject:
@@ -16856,7 +16770,7 @@ MonoBehaviour:
   isInspecting: 0
   loading: 0
   loadingIndex: 0
-  cam: {fileID: 330585547}
+  cam: {fileID: 330585550}
   grader: {fileID: 1438316108}
 --- !u!114 &1820030387
 MonoBehaviour:
@@ -19049,7 +18963,7 @@ MonoBehaviour:
 
     DENY [RMB]'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da69b7052e3fa6b49a54ba3098ee7346, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -19057,7 +18971,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.70540994, g: 0.8301887, b: 0.16838734, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -19113,7 +19027,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &2131199340
@@ -19323,7 +19237,7 @@ MonoBehaviour:
   isInspecting: 0
   loading: 0
   loadingIndex: 0
-  cam: {fileID: 330585547}
+  cam: {fileID: 330585550}
   grader: {fileID: 1438316108}
 --- !u!114 &2145876894
 MonoBehaviour:
@@ -20432,7 +20346,6 @@ GameObject:
   - component: {fileID: 8791929174962577200}
   - component: {fileID: 2252923201109708645}
   - component: {fileID: 1631946219806535892}
-  - component: {fileID: 8791929174962577201}
   - component: {fileID: 8791929174962577202}
   m_Layer: 0
   m_Name: vox
@@ -35136,6 +35049,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4414125468633184901}
     m_Modifications:
+    - target: {fileID: 5711496924431600474, guid: 6ed12d2b74d1e294bb05e8f456a27942,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -4464119275196512935, guid: da69b7052e3fa6b49a54ba3098ee7346,
+        type: 2}
+    - target: {fileID: 5711496924431600475, guid: 6ed12d2b74d1e294bb05e8f456a27942,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 28.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711496924431600475, guid: 6ed12d2b74d1e294bb05e8f456a27942,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: da69b7052e3fa6b49a54ba3098ee7346,
+        type: 2}
+    - target: {fileID: 5711496924431600475, guid: 6ed12d2b74d1e294bb05e8f456a27942,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 28.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711496924431600475, guid: 6ed12d2b74d1e294bb05e8f456a27942,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4464119275196512935, guid: da69b7052e3fa6b49a54ba3098ee7346,
+        type: 2}
     - target: {fileID: 5711496924624952357, guid: 6ed12d2b74d1e294bb05e8f456a27942,
         type: 3}
       propertyPath: m_RootOrder
@@ -35501,7 +35442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!1 &5803270474378325146
@@ -37565,7 +37506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!23 &6541393442551678501
@@ -37657,7 +37598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!23 &6559241910604788752
@@ -39715,7 +39656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!1 &7377861394828436764
@@ -40347,7 +40288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!4 &7718770620104563781
@@ -40451,7 +40392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!1 &7762889362786031461
@@ -41194,7 +41135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!23 &8056096854880751012
@@ -41556,7 +41497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!4 &8190700394789149448
@@ -42126,7 +42067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!33 &8408232557547297581
@@ -42363,7 +42304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!33 &8558765847217010953
@@ -42697,7 +42638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!1 &8758503994433847084
@@ -42877,21 +42818,6 @@ Transform:
   m_Father: {fileID: 7072087303715253357}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: -89.744, y: 74.464, z: -90.004}
---- !u!114 &8791929174962577201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39286067905073127}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79844cb688e56494e854238b4ef82490, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
-  grader: {fileID: 1438316108}
-  gameManager: {fileID: 0}
 --- !u!114 &8791929174962577202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42904,7 +42830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!4 &8800681405903595907
@@ -42992,7 +42918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 0}
+  mixBr: {fileID: 1820030386}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!33 &8859796906503734920

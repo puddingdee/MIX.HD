@@ -6,6 +6,7 @@ using UnityEngine;
 using csoundcsharp;
 using System;
 using Unity.VisualScripting;
+using TMPro;
 
 public class MixingBrain : MonoBehaviour
 {
@@ -127,14 +128,14 @@ public class MixingBrain : MonoBehaviour
     
 
     [SerializeField] Grader grader;
-    
 
+    private TextMeshProUGUI menuText;
 
     // Start is called before the first frame update
     void Start()
     {
         csound = GetComponent<CsoundUnity>();
-        StartCoroutine(WaitForMessage());
+        menuText = backToMenu.GetComponent<TextMeshProUGUI>();
 
         DLM_Y1 = dlm1.transform.position.y;
         DLM_Y2 = dlm2.transform.position.y;
@@ -191,17 +192,17 @@ public class MixingBrain : MonoBehaviour
         if (mouse.leftButton.wasPressedThisFrame)
         {
             GameObject currentParam = GetClickedParameter();
-            
+
             if (currentParam == null)
             {
-                
+
             }
             else if (currentParam == dlm1 || currentParam == dlm2 || currentParam == dlm3 || currentParam == dlm4)
             {
-                
+
                 ToggleParam(currentParam);
                 grader.epicValue += dlmWeight;
-                
+
             }
             else if (currentParam == dlt1 || currentParam == dlt2 || currentParam == dlt3 || currentParam == dlt4)
             {
@@ -209,7 +210,7 @@ public class MixingBrain : MonoBehaviour
                 StartCoroutine(DialDLT(currentParam));
                 adjusticle.SetActive(true);
                 grader.epicValue += dltWeight;
-                
+
             }
             else if (currentParam == dist1 || currentParam == dist2 || currentParam == dist3 || currentParam == dist4)
             {
@@ -217,14 +218,14 @@ public class MixingBrain : MonoBehaviour
                 StartCoroutine(DialDist(currentParam));
                 adjusticle.SetActive(true);
                 grader.epicValue += distWeight;
-                
+
             }
             else if (currentParam == ex1 || currentParam == ex2 || currentParam == ex3 || currentParam == ex4)
             {
 
                 ToggleParam(currentParam);
                 grader.epicValue += exWeight;
-                
+
             }
             else if (currentParam == fold1 || currentParam == fold2 || currentParam == fold3 || currentParam == fold4)
             {
@@ -235,7 +236,7 @@ public class MixingBrain : MonoBehaviour
             }
             else if (currentParam == gain1 || currentParam == gain2 || currentParam == gain3 || currentParam == gain4)
             {
-                
+
                 StartCoroutine(DialGain(currentParam));
                 adjusticle.SetActive(true);
             }
@@ -257,54 +258,54 @@ public class MixingBrain : MonoBehaviour
                 ToggleParam(currentParam);
                 grader.epicValue += crossWeight;
             }
-            else if (currentParam == o_shownote)
+            else if (currentParam == o_shownote && this.name == "Speaker Left")
             {
                 isInspecting = true;
                 o_inspecticle.SetActive(true);
             }
-            else if (currentParam == s_shownote)
+            else if (currentParam == s_shownote && this.name == "Speaker Left")
             {
                 isInspecting = true;
 
                 s_inspecticle.SetActive(true);
             }
-            else if (currentParam == g_shownote)
+            else if (currentParam == g_shownote && this.name == "Speaker Left")
             {
                 isInspecting = true;
 
                 g_inspecticle.SetActive(true);
             }
-            else if (currentParam == soundCheck)
+            else if (currentParam == soundCheck && this.name == "Speaker Left")
             {
                 isInspecting = true;
 
                 soundCheckInspecticle.SetActive(true);
             }
-            else if (currentParam.name == "s_inspecticle" && !loading)
+            else if (currentParam.name == "s_inspecticle" && !loading && this.name == "Speaker Left")
             {
                 loadingIndex = 2;
                 loading = true;
-                
-                
+
+
             }
-            else if (currentParam.name == "g_inspecticle" && !loading)
+            else if (currentParam.name == "g_inspecticle" && !loading && this.name == "Speaker Left")
             {
                 loadingIndex = 3;
                 loading = true;
-                
-                
+
+
             }
-            else if (currentParam.name == "o_inspecticle" && !loading)
+            else if (currentParam.name == "o_inspecticle" && !loading && this.name == "Speaker Left")
             {
                 loadingIndex = 1;
                 loading = true;
             }
-            else if (currentParam == backtoticle)
+            else if (currentParam == backtoticle && this.name == "Speaker Left")
             {
                 loadingIndex = 0;
                 loading = true;
             }
-            else if (currentParam == lightSwitch)
+            else if (currentParam == lightSwitch && this.name == "Speaker Left")
             {
                 if (isDark)
                 {
@@ -316,11 +317,21 @@ public class MixingBrain : MonoBehaviour
                     darkticle.SetActive(true);
                     isDark = true;
                 }
-                
+
             }
 
         }
         
+        if (loading && this.name == "Speaker Left")
+        {
+            backToMenu.SetActive(true) ;
+            menuText.SetText("LOADING");
+        }
+        else if (!loading && this.name == "Speaker Left")
+        {
+            menuText.SetText("BACK TO MENU?\r\nCONFIRM [LMB]\r\nDENY [RMB]");
+        }
+
         if (mouse.leftButton.wasReleasedThisFrame)
         {
             StopAllCoroutines();

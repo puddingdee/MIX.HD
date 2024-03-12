@@ -115,10 +115,10 @@ public class Grader : MonoBehaviour
         text.SetText(finalGrade);
         mixBr.darkticle.SetActive(true);
         gradeText.SetActive(true);
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(5);
         mixBr.darkticle.SetActive(false);
 
-        gradeText.SetActive(false);
+        text.SetText("CHOOSE ANOTHER BAND. SHOW NOTES ARE ON THE BACK WALL");
         //TODO go back to sound check
 
     }

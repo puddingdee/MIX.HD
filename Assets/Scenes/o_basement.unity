@@ -8141,15 +8141,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da69b7052e3fa6b49a54ba3098ee7346, type: 2}
+  m_sharedMaterial: {fileID: -4464119275196512935, guid: da69b7052e3fa6b49a54ba3098ee7346,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4281062580
+  m_fontColor: {r: 0.70540994, g: 0.8301887, b: 0.16838734, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8166,8 +8167,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
-  m_fontSizeBase: 70
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8231,10 +8232,10 @@ RectTransform:
   m_Father: {fileID: 96548496}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 544.45, y: 0}
-  m_SizeDelta: {x: 1088.9, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -544.44995, y: 0}
+  m_SizeDelta: {x: 1088.8999, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &816457122
 GameObject:
@@ -15438,7 +15439,7 @@ MonoBehaviour:
   gameManager: {fileID: 1438316106}
   gradeText: {fileID: 708474644}
   mixBr: {fileID: 1820030386}
-  drainSpeed: 0.05
+  drainSpeed: 0.3
 --- !u!114 &1438316109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16357,6 +16358,34 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3dfd7d37b6488f44a92d21b7a84a242f, type: 2}
+    - target: {fileID: 5711496924431600474, guid: 6ed12d2b74d1e294bb05e8f456a27942,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -4464119275196512935, guid: da69b7052e3fa6b49a54ba3098ee7346,
+        type: 2}
+    - target: {fileID: 5711496924431600475, guid: 6ed12d2b74d1e294bb05e8f456a27942,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 26.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711496924431600475, guid: 6ed12d2b74d1e294bb05e8f456a27942,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: da69b7052e3fa6b49a54ba3098ee7346,
+        type: 2}
+    - target: {fileID: 5711496924431600475, guid: 6ed12d2b74d1e294bb05e8f456a27942,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 26.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711496924431600475, guid: 6ed12d2b74d1e294bb05e8f456a27942,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4464119275196512935, guid: da69b7052e3fa6b49a54ba3098ee7346,
+        type: 2}
     - target: {fileID: 5711496924624952357, guid: 6ed12d2b74d1e294bb05e8f456a27942,
         type: 3}
       propertyPath: m_RootOrder
@@ -18917,7 +18946,7 @@ MonoBehaviour:
 
     DENY [RMB]'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da69b7052e3fa6b49a54ba3098ee7346, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -18925,7 +18954,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.70540994, g: 0.8301887, b: 0.16838734, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -18981,7 +19010,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &2131199340

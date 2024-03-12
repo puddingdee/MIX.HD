@@ -27,10 +27,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float[] bassSamples = new float[64];
     [SerializeField] private GameObject speakerL;
     private CsoundUnity csound;
-    private CsoundUnityBridge bridge;
     
     private Vector3 staticPos;
-
+    private long csoundTime;
     public bool csoundInit = false;
 
     // Start is called before the first frame update
@@ -38,22 +37,23 @@ public class CameraController : MonoBehaviour
     {
         bassSource = GetComponent<AudioSource>();
         csound = speakerL.GetComponent<CsoundUnity>();
-        bridge = speakerL.GetComponent<CsoundUnityBridge>();
+        
         staticPos = transform.position;
         
-        //StartCoroutine(WaitForCSound());
-        StartCoroutine(WaitForMessage());
+        StartCoroutine(WaitForCSound());
+        
         
         
     }
 
 
 
+
     // Update is called once per frame
     void LateUpdate()
     {
-        
-       
+        csoundTime = csound.GetCurrentTimeSamples();
+
         rotationX += Input.GetAxis("Mouse Y");
             rotationY += Input.GetAxis("Mouse X");
             rotationX = Mathf.Clamp(rotationX, minVerticalAngle, maxVerticalAngle);
@@ -97,29 +97,20 @@ public class CameraController : MonoBehaviour
 
     private IEnumerator WaitForCSound()
     {
-
-        while (!csoundInit)
+        
+        while (csoundTime <= 144000)
         {
-            yield return new WaitForEndOfFrame();
-        }
-        yield return new WaitForSeconds(3.3f);
-        bassSource.Play();
-        Debug.Log("playing bass");
-    }
-
-    private IEnumerator WaitForMessage()
-    {
-        Debug.Log("here");
-        while (bridge.GetCsoundMessage() != "new alloc for instr 2:")
-        {
-            Debug.Log(bridge.GetCsoundMessage());
             
-            yield return new WaitForEndOfFrame();
+            Debug.Log(csoundTime);
+            yield return null;
         }
-        yield return new WaitForSeconds(3.3f);
+
+        yield return null;
         bassSource.Play();
         Debug.Log("playing bass");
     }
+
+
 
 
     //public Quaternion PlanarRotation => Quaternion.Euler(0, rotationY, 0);
