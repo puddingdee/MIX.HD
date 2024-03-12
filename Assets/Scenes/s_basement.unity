@@ -5792,7 +5792,73 @@ MonoBehaviour:
   shakeIntensity: 1
   workingIntensity: 0
   intensityMultiplier: 0
-  bass: {fileID: 0}
+  mixBr: {fileID: 0}
+  bassSamples:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  csoundInit: 0
 --- !u!114 &330585549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5937,7 +6003,73 @@ MonoBehaviour:
   shakeIntensity: 0
   workingIntensity: 0.5
   intensityMultiplier: 0
-  bass: {fileID: 0}
+  mixBr: {fileID: 0}
+  bassSamples:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  csoundInit: 0
 --- !u!82 &330585551
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6511,7 +6643,7 @@ GameObject:
   - component: {fileID: 400339249}
   - component: {fileID: 400339252}
   - component: {fileID: 400339251}
-  - component: {fileID: 400339250}
+  - component: {fileID: 400339253}
   m_Layer: 0
   m_Name: o_inspecticle
   m_TagString: Untagged
@@ -6534,20 +6666,6 @@ Transform:
   m_Father: {fileID: 330585546}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!64 &400339250
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 400339248}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &400339251
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6598,6 +6716,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400339248}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &400339253
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400339248}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.000006, y: 0, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &430807554
 GameObject:
   m_ObjectHideFlags: 0
@@ -7155,7 +7286,7 @@ GameObject:
   - component: {fileID: 463620881}
   - component: {fileID: 463620884}
   - component: {fileID: 463620883}
-  - component: {fileID: 463620882}
+  - component: {fileID: 463620885}
   m_Layer: 0
   m_Name: g_inspecticle
   m_TagString: Untagged
@@ -7178,20 +7309,6 @@ Transform:
   m_Father: {fileID: 330585546}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!64 &463620882
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463620880}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &463620883
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7242,6 +7359,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463620880}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &463620885
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463620880}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.000006, y: 0, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &475276104
 GameObject:
   m_ObjectHideFlags: 0
@@ -15253,6 +15383,7 @@ GameObject:
   - component: {fileID: 1438316107}
   - component: {fileID: 1438316106}
   - component: {fileID: 1438316108}
+  - component: {fileID: 1438316109}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -15274,6 +15405,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BPM: 186
   totalSongTime: 109
+  MixBrR: {fileID: 2145876892}
+  MixBrL: {fileID: 1820030385}
 --- !u!4 &1438316107
 Transform:
   m_ObjectHideFlags: 0
@@ -15308,6 +15441,20 @@ MonoBehaviour:
   gradeText: {fileID: 617588442}
   mixBr: {fileID: 1820030386}
   drainSpeed: 0.05
+--- !u!114 &1438316109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438316105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344d4cab8421046498a881fb256b67e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixBr: {fileID: 1820030386}
+  gameManager: {fileID: 1438316106}
 --- !u!1 &1484999653
 GameObject:
   m_ObjectHideFlags: 0
@@ -15319,14 +15466,14 @@ GameObject:
   - component: {fileID: 1484999654}
   - component: {fileID: 1484999657}
   - component: {fileID: 1484999656}
-  - component: {fileID: 1484999655}
+  - component: {fileID: 1484999658}
   m_Layer: 0
   m_Name: backtoticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1484999654
 Transform:
   m_ObjectHideFlags: 0
@@ -15342,20 +15489,6 @@ Transform:
   m_Father: {fileID: 330585546}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!64 &1484999655
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484999653}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1484999656
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15406,6 +15539,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1484999653}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1484999658
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484999653}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.000008, y: 0, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: -0.0000009536743}
 --- !u!1 &1520244753
 GameObject:
   m_ObjectHideFlags: 0
@@ -16703,9 +16849,14 @@ MonoBehaviour:
   backToMenu: {fileID: 2131199337}
   lightSwitch: {fileID: 2041869349}
   darkticle: {fileID: 2019307971}
+  backtoticle: {fileID: 1484999653}
+  gameManager: {fileID: 1438316106}
   testZ: -0.2
   isCross: 0
   isInspecting: 0
+  loading: 0
+  loadingIndex: 0
+  cam: {fileID: 330585547}
   grader: {fileID: 1438316108}
 --- !u!114 &1820030387
 MonoBehaviour:
@@ -19165,9 +19316,14 @@ MonoBehaviour:
   backToMenu: {fileID: 2131199337}
   lightSwitch: {fileID: 2041869349}
   darkticle: {fileID: 2019307971}
+  backtoticle: {fileID: 1484999653}
+  gameManager: {fileID: 1438316106}
   testZ: -0.2
   isCross: 0
   isInspecting: 0
+  loading: 0
+  loadingIndex: 0
+  cam: {fileID: 330585547}
   grader: {fileID: 1438316108}
 --- !u!114 &2145876894
 MonoBehaviour:
@@ -35345,7 +35501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 1820030386}
+  mixBr: {fileID: 0}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!1 &5803270474378325146
@@ -37409,7 +37565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 1820030386}
+  mixBr: {fileID: 0}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!23 &6541393442551678501
@@ -37501,7 +37657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 1820030386}
+  mixBr: {fileID: 0}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!23 &6559241910604788752
@@ -39559,7 +39715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 1820030386}
+  mixBr: {fileID: 0}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!1 &7377861394828436764
@@ -40191,7 +40347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 1820030386}
+  mixBr: {fileID: 0}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!4 &7718770620104563781
@@ -40295,7 +40451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 1820030386}
+  mixBr: {fileID: 0}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!1 &7762889362786031461
@@ -41038,7 +41194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 1820030386}
+  mixBr: {fileID: 0}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!23 &8056096854880751012
@@ -41400,7 +41556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 1820030386}
+  mixBr: {fileID: 0}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!4 &8190700394789149448
@@ -41970,7 +42126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 1820030386}
+  mixBr: {fileID: 0}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!33 &8408232557547297581
@@ -42207,7 +42363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 1820030386}
+  mixBr: {fileID: 0}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!33 &8558765847217010953
@@ -42541,7 +42697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 1820030386}
+  mixBr: {fileID: 0}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!1 &8758503994433847084
@@ -42733,7 +42889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79844cb688e56494e854238b4ef82490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 1820030386}
+  mixBr: {fileID: 0}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 0}
 --- !u!114 &8791929174962577202
@@ -42748,7 +42904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 1820030386}
+  mixBr: {fileID: 0}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!4 &8800681405903595907
@@ -42836,7 +42992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183b96b3b2caa764c99855307eabeff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixBr: {fileID: 1820030386}
+  mixBr: {fileID: 0}
   grader: {fileID: 1438316108}
   gameManager: {fileID: 1438316106}
 --- !u!33 &8859796906503734920

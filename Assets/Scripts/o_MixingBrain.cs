@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine;
 using csoundcsharp;
@@ -87,6 +87,9 @@ public class o_MixingBrain : MonoBehaviour
 
     [SerializeField] GameObject lightSwitch;
     [SerializeField] public GameObject darkticle;
+
+    [SerializeField] GameManager gameManager;
+
     private bool isDark = false;
 
     [SerializeField] float testZ;
@@ -115,6 +118,11 @@ public class o_MixingBrain : MonoBehaviour
 
     public bool isCross = false;
     public bool isInspecting = false;
+    public bool loading = false;
+    public int loadingIndex;
+
+    [SerializeField] private CameraController cam;
+    
 
     [SerializeField] Grader grader;
     
@@ -124,7 +132,7 @@ public class o_MixingBrain : MonoBehaviour
     void Start()
     {
         csound = GetComponent<CsoundUnity>();
-        StartCoroutine(WaitForLoad());
+
 
         DLM_Y1 = dlm1.transform.position.y;
         DLM_Y2 = dlm2.transform.position.y;
@@ -168,14 +176,25 @@ public class o_MixingBrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (!csound.IsInitialized) return;
+        if (csound.IsInitialized)
+        {
+            cam.csoundInit = true;
+        }
+        Debug.Log("please");
         Mouse mouse = Mouse.current;
 
         CheckForParam();
         if (mouse.leftButton.wasPressedThisFrame)
         {
             GameObject currentParam = GetClickedParameter();
-            if (currentParam == dlm1 || currentParam == dlm2 || currentParam == dlm3 || currentParam == dlm4)
+            
+            if (currentParam == null)
+            {
+                Debug.Log("asdf");
+            }
+            else if (currentParam == dlm1 || currentParam == dlm2 || currentParam == dlm3 || currentParam == dlm4)
             {
                 
                 ToggleParam(currentParam);
@@ -214,13 +233,13 @@ public class o_MixingBrain : MonoBehaviour
             }
             else if (currentParam == gain1 || currentParam == gain2 || currentParam == gain3 || currentParam == gain4)
             {
-
+                Debug.Log("made it");
                 StartCoroutine(DialGain(currentParam));
                 adjusticle.SetActive(true);
             }
             else if (currentParam == cut1 || currentParam == cut2 || currentParam == cut3 || currentParam == cut4)
             {
-
+                Debug.Log("HOW");
                 StartCoroutine(DialCut(currentParam));
                 adjusticle.SetActive(true);
                 grader.epicValue -= cutWeight;
@@ -260,6 +279,25 @@ public class o_MixingBrain : MonoBehaviour
 
                 soundCheckInspecticle.SetActive(true);
             }
+            else if (currentParam.name == "s_inspecticle" && !loading)
+            {
+                loadingIndex = 1;
+                loading = true;
+                
+                
+            }
+            else if (currentParam.name == "g_inspecticle" && !loading)
+            {
+                loadingIndex = 2;
+                loading = true;
+                
+                
+            }
+            else if (currentParam.name == "o_inspecticle" && !loading)
+            {
+                loadingIndex = 0;
+                loading = true;
+            }
             else if (currentParam == lightSwitch)
             {
                 if (isDark)
@@ -274,8 +312,9 @@ public class o_MixingBrain : MonoBehaviour
                 }
                 
             }
+
         }
-            
+        
         if (mouse.leftButton.wasReleasedThisFrame)
         {
             StopAllCoroutines();
@@ -284,12 +323,7 @@ public class o_MixingBrain : MonoBehaviour
         }
         if (mouse.rightButton.wasPressedThisFrame)
         {
-            if (!isInspecting)
-            {
-                backToMenu.SetActive(true);
-                isInspecting = true;
-            }
-            else
+            if (isInspecting)
             {
                 o_inspecticle.SetActive(false);
                 s_inspecticle.SetActive(false);
@@ -298,9 +332,17 @@ public class o_MixingBrain : MonoBehaviour
                 backToMenu.SetActive(false);
 
                 isInspecting = false;
+
+            }
+            else
+            {
+                backToMenu.SetActive(true);
+                isInspecting = true;
             }
 
         }
+
+
         
     }
 
@@ -635,11 +677,12 @@ public class o_MixingBrain : MonoBehaviour
 
             if (param == gain1)
             {
-                param.transform.localPosition = new Vector3(param.transform.localPosition.x, param.transform.localPosition.y, GAIN_Z1 - (0.3f * percentParam)+0.2f);
+                Debug.Log("here");
+                param.transform.localPosition = new Vector3(param.transform.localPosition.x, param.transform.localPosition.y, GAIN_Z1 - (0.3f * percentParam) + 0.2f);
             }
             else if (param == gain2)
             {
-                param.transform.localPosition = new Vector3(param.transform.localPosition.x, param.transform.localPosition.y, GAIN_Z2 - (0.3f * percentParam)+0.2f);
+                param.transform.localPosition = new Vector3(param.transform.localPosition.x, param.transform.localPosition.y, GAIN_Z2 - (0.3f * percentParam) + 0.2f);
 
             }
             else if (param == gain3)
@@ -706,15 +749,5 @@ public class o_MixingBrain : MonoBehaviour
     }
 
 
-    private IEnumerator WaitForLoad()
-    {
-        yield return new WaitForSeconds(3);
-        csound.SendScoreEvent("i1 0 135 1");
-        csound.SendScoreEvent("i2 0 135 2");
-        csound.SendScoreEvent("i3 0 135 3");
-        csound.SendScoreEvent("i4 0 135 4");
-        csound.SendScoreEvent("i5 0 135");
 
-    }
-    
 }

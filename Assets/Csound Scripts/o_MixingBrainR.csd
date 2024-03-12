@@ -492,7 +492,11 @@ f 4  0 0    1   "o_drums_1.mp3" 0 0 0
 f 5 0 2048 20 2	;windowing function
 
 
-f0 z
+i 1 3 135 1
+i 2 3 135 2
+i 3 3 135 3
+i 4 3 135 4
+i 5 3 135
 
 </CsScore>
 </CsoundSynthesizer>

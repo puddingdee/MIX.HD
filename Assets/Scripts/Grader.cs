@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class Grader : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class Grader : MonoBehaviour
     public int epicDisparity;
     [SerializeField] GameManager gameManager;
     [SerializeField] GameObject gradeText;
-    [SerializeField] o_MixingBrain mixBr;
+    [SerializeField] MixingBrain mixBr;
     [SerializeField] float drainSpeed;
     TextMeshProUGUI text;
     // Start is called before the first frame update
@@ -71,7 +72,34 @@ public class Grader : MonoBehaviour
         {
             finalGrade = "WORSE THAN DEATH ITSELF";
         }
-        Debug.Log(finalGrade);
+        if (SceneManager.GetActiveScene().name == "g_basement")
+        {
+            epicDisparity = Random.Range(0, 250);
+            if (epicDisparity < 10)
+            {
+                finalGrade = "MONUMENTAL";
+            }
+            else if (epicDisparity < 50)
+            {
+                finalGrade = "SATISFACTORY";
+            }
+            else if (epicDisparity < 100)
+            {
+                finalGrade = "...";
+            }
+            else if (epicDisparity < 150)
+            {
+                finalGrade = "FORGETTABLE";
+            }
+            else if (epicDisparity < 200)
+            {
+                finalGrade = "INEXCUSABLE";
+            }
+            else if (epicDisparity >= 200)
+            {
+                finalGrade = "WORSE THAN DEATH ITSELF";
+            }
+        }
         StartCoroutine(DisplayGrade());
     }
 

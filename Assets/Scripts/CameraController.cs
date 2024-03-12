@@ -20,27 +20,37 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float shakeIntensity = 0f;
     [SerializeField] float workingIntensity;
     [SerializeField] float intensityMultiplier;
-    [SerializeField] private GameObject bass;
+    
+    [SerializeField] private o_MixingBrain mixBr;
+
     private AudioSource bassSource;
-    private float[] bassSamples = new float[64];
+    [SerializeField] private float[] bassSamples = new float[64];
+    private CsoundUnity csound;
     
     private Vector3 staticPos;
 
-
+    public bool csoundInit = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         staticPos = transform.position;
         bassSource = GetComponent<AudioSource>();
-        StartCoroutine(BassDelay());
+        StartCoroutine(WaitForCSound());
+
+        
+        
     }
+
+
 
     // Update is called once per frame
     void LateUpdate()
     {
 
-            rotationX += Input.GetAxis("Mouse Y");
+       
+        rotationX += Input.GetAxis("Mouse Y");
             rotationY += Input.GetAxis("Mouse X");
             rotationX = Mathf.Clamp(rotationX, minVerticalAngle, maxVerticalAngle);
 
@@ -81,12 +91,18 @@ public class CameraController : MonoBehaviour
 
 
 
-
-    private IEnumerator BassDelay()
+    private IEnumerator WaitForCSound()
     {
-        yield return new WaitForSeconds(3f);
+
+        while (!csoundInit)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        yield return new WaitForSeconds(3.3f);
         bassSource.Play();
+        Debug.Log("playing bass");
     }
+
 
     //public Quaternion PlanarRotation => Quaternion.Euler(0, rotationY, 0);
 
