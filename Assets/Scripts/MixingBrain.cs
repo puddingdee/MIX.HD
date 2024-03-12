@@ -7,6 +7,7 @@ using csoundcsharp;
 using System;
 using Unity.VisualScripting;
 using TMPro;
+using UnityEngine.Audio;
 
 public class MixingBrain : MonoBehaviour
 {
@@ -131,11 +132,21 @@ public class MixingBrain : MonoBehaviour
 
     private TextMeshProUGUI menuText;
 
+    AudioSource paperClick;
+    AudioSource newSong;
+    AudioSource back;
+    [SerializeField] GameObject sfx;
+    public AudioMixerSnapshot sfxon;
     // Start is called before the first frame update
     void Start()
     {
         csound = GetComponent<CsoundUnity>();
         menuText = backToMenu.GetComponent<TextMeshProUGUI>();
+        AudioSource[] audios = sfx.GetComponents<AudioSource>();
+        paperClick = audios[0];
+        newSong = audios[1];
+        back= audios[2];
+        sfxon.TransitionTo(0.1f);
 
         DLM_Y1 = dlm1.transform.position.y;
         DLM_Y2 = dlm2.transform.position.y;
@@ -262,48 +273,53 @@ public class MixingBrain : MonoBehaviour
             {
                 isInspecting = true;
                 o_inspecticle.SetActive(true);
+                paperClick.Play();
             }
             else if (currentParam == s_shownote && this.name == "Speaker Left")
             {
                 isInspecting = true;
-
+                paperClick.Play();
                 s_inspecticle.SetActive(true);
             }
             else if (currentParam == g_shownote && this.name == "Speaker Left")
             {
                 isInspecting = true;
-
+                paperClick.Play();
                 g_inspecticle.SetActive(true);
             }
             else if (currentParam == soundCheck && this.name == "Speaker Left")
             {
                 isInspecting = true;
-
+                paperClick.Play();
                 soundCheckInspecticle.SetActive(true);
             }
             else if (currentParam.name == "s_inspecticle" && !loading && this.name == "Speaker Left")
             {
                 loadingIndex = 2;
                 loading = true;
-
+                paperClick.Play();
+                newSong.Play();
 
             }
             else if (currentParam.name == "g_inspecticle" && !loading && this.name == "Speaker Left")
             {
                 loadingIndex = 3;
                 loading = true;
-
-
+                paperClick.Play();
+                newSong.Play();
             }
             else if (currentParam.name == "o_inspecticle" && !loading && this.name == "Speaker Left")
             {
                 loadingIndex = 1;
                 loading = true;
+                paperClick.Play();
+                newSong.Play();
             }
             else if (currentParam == backtoticle && this.name == "Speaker Left")
             {
                 loadingIndex = 0;
                 loading = true;
+                back.Play();
             }
             else if (currentParam == lightSwitch && this.name == "Speaker Left")
             {
@@ -311,11 +327,13 @@ public class MixingBrain : MonoBehaviour
                 {
                     darkticle.SetActive(false);
                     isDark = false;
+                    paperClick.Play();
                 }
                 else
                 {
                     darkticle.SetActive(true);
                     isDark = true;
+                    paperClick.Play();
                 }
 
             }

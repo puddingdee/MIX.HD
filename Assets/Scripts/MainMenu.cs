@@ -5,18 +5,26 @@ using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
     private TextMeshProUGUI instructions;
     [SerializeField] GameObject loadText;
     private bool loading = false;
-    // Start is called before the first frame update
+    private AudioSource opening;
+    [SerializeField] GameObject sfx;
+    public AudioMixerSnapshot fadeout;
+    public AudioMixerSnapshot norm;
+    public AudioMixerSnapshot show;
     void Start()
     {
         instructions = loadText.GetComponent<TextMeshProUGUI>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        opening = sfx.GetComponent<AudioSource>();
+        norm.TransitionTo(0.01f);
+        opening.Play();
     }
 
     // Update is called once per frame
@@ -25,8 +33,11 @@ public class MainMenu : MonoBehaviour
         Mouse mouse = Mouse.current;
         if (mouse.leftButton.wasPressedThisFrame && !loading)
         {
+            opening.Play();
+            fadeout.TransitionTo(4);
             loading = true;
             instructions.SetText("LOADING");
+            show.TransitionTo(2f);
             StartCoroutine(LoadGame());
         }
         else if(mouse.rightButton.wasPressedThisFrame)
