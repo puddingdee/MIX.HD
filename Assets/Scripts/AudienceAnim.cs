@@ -7,6 +7,8 @@ public class AudienceAnim : MonoBehaviour
 {
     [SerializeField] o_MixingBrain mixBr;
     [SerializeField] Grader grader;
+    [SerializeField] GameManager gameManager;
+
     private float upperRange;
 
     // Start is called before the first frame update
@@ -31,7 +33,7 @@ public class AudienceAnim : MonoBehaviour
             while (!mixBr.isCross)
             {
                 transform.rotation = Quaternion.Euler(transform.rotation.x-90 + Random.Range(0, upperRange), transform.rotation.y + Random.Range(0, upperRange), transform.rotation.z + Random.Range(0, upperRange));
-                yield return new WaitForSeconds(30f / 186f);
+                yield return new WaitForSeconds(30f / gameManager.BPM);
             }
             while (mixBr.isCross)
             {

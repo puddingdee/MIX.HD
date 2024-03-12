@@ -6,6 +6,7 @@ public class o_RandomRotation : MonoBehaviour
 {
     [SerializeField] o_MixingBrain mixBr;
     [SerializeField] Grader grader;
+    [SerializeField] GameManager gameManager;
     private float upperRange;
     
     // Start is called before the first frame update
@@ -28,7 +29,7 @@ public class o_RandomRotation : MonoBehaviour
             while (!mixBr.isCross)
             {
                 transform.localRotation = Quaternion.Euler(transform.localRotation.x-90 + Random.Range(0, upperRange), transform.localRotation.y + Random.Range(0, upperRange), transform.localRotation.z + Random.Range(0, upperRange));
-                yield return new WaitForSeconds(60f / 186f);
+                yield return new WaitForSeconds(60f / gameManager.BPM);
             }
             while (mixBr.isCross)
             {

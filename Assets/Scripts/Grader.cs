@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -10,12 +11,20 @@ public class Grader : MonoBehaviour
     public string finalGrade = "";
     public int epicDisparity;
     [SerializeField] GameManager gameManager;
+    [SerializeField] GameObject gradeText;
+    [SerializeField] o_MixingBrain mixBr;
+    [SerializeField] float drainSpeed;
+    TextMeshProUGUI text;
     // Start is called before the first frame update
     void Start()
     {
 
         StartCoroutine(TimeTilEnd());
-        
+        StartCoroutine(EpicDrain());
+
+        text = gradeText.GetComponent<TextMeshProUGUI>();
+
+
     }
 
     // Update is called once per frame
@@ -25,8 +34,12 @@ public class Grader : MonoBehaviour
         {
             epicValue = 0;
         }
+        else if (epicValue > 300)
+        {
+            epicValue = 300;
+        }
         epicDisparity = targetEpicness - epicValue;
-
+        
     }
 
     public void MakeAGrade()
@@ -59,11 +72,35 @@ public class Grader : MonoBehaviour
             finalGrade = "WORSE THAN DEATH ITSELF";
         }
         Debug.Log(finalGrade);
+        StartCoroutine(DisplayGrade());
     }
 
     private IEnumerator TimeTilEnd()
     {
-        yield return new WaitForSeconds(gameManager.o_TotalSongTime);
+        yield return new WaitForSeconds(gameManager.totalSongTime);
         MakeAGrade();
+    }
+
+    private IEnumerator DisplayGrade()
+    {
+        //TODO play grade sfx
+        text.SetText(finalGrade);
+        mixBr.darkticle.SetActive(true);
+        gradeText.SetActive(true);
+        yield return new WaitForSeconds(6);
+        mixBr.darkticle.SetActive(false);
+
+        gradeText.SetActive(false);
+        //TODO go back to sound check
+
+    }
+    private IEnumerator EpicDrain()
+    {
+        while (true)
+        {
+            epicValue -= 1;
+            yield return new WaitForSeconds(drainSpeed);
+        }
+        
     }
 }

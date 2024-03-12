@@ -86,7 +86,7 @@ public class o_MixingBrain : MonoBehaviour
     [SerializeField] GameObject backToMenu;
 
     [SerializeField] GameObject lightSwitch;
-    [SerializeField] GameObject darkticle;
+    [SerializeField] public GameObject darkticle;
     private bool isDark = false;
 
     [SerializeField] float testZ;
@@ -124,6 +124,8 @@ public class o_MixingBrain : MonoBehaviour
     void Start()
     {
         csound = GetComponent<CsoundUnity>();
+        StartCoroutine(WaitForLoad());
+
         DLM_Y1 = dlm1.transform.position.y;
         DLM_Y2 = dlm2.transform.position.y;
         DLM_Y3 = dlm3.transform.position.y;
@@ -185,8 +187,8 @@ public class o_MixingBrain : MonoBehaviour
 
                 StartCoroutine(DialDLT(currentParam));
                 adjusticle.SetActive(true);
-                grader.epicValue -= dltWeight;
-                Debug.Log(grader.epicValue);
+                grader.epicValue += dltWeight;
+                
             }
             else if (currentParam == dist1 || currentParam == dist2 || currentParam == dist3 || currentParam == dist4)
             {
@@ -194,14 +196,14 @@ public class o_MixingBrain : MonoBehaviour
                 StartCoroutine(DialDist(currentParam));
                 adjusticle.SetActive(true);
                 grader.epicValue += distWeight;
-                Debug.Log(grader.epicValue);
+                
             }
             else if (currentParam == ex1 || currentParam == ex2 || currentParam == ex3 || currentParam == ex4)
             {
 
                 ToggleParam(currentParam);
                 grader.epicValue += exWeight;
-                Debug.Log(grader.epicValue);
+                
             }
             else if (currentParam == fold1 || currentParam == fold2 || currentParam == fold3 || currentParam == fold4)
             {
@@ -209,14 +211,12 @@ public class o_MixingBrain : MonoBehaviour
                 StartCoroutine(DialFold(currentParam));
                 adjusticle.SetActive(true);
                 grader.epicValue += foldWeight;
-                Debug.Log(grader.epicValue);
             }
             else if (currentParam == gain1 || currentParam == gain2 || currentParam == gain3 || currentParam == gain4)
             {
 
                 StartCoroutine(DialGain(currentParam));
                 adjusticle.SetActive(true);
-                Debug.Log(grader.epicValue);
             }
             else if (currentParam == cut1 || currentParam == cut2 || currentParam == cut3 || currentParam == cut4)
             {
@@ -224,21 +224,18 @@ public class o_MixingBrain : MonoBehaviour
                 StartCoroutine(DialCut(currentParam));
                 adjusticle.SetActive(true);
                 grader.epicValue -= cutWeight;
-                Debug.Log(grader.epicValue);
             }
             else if (currentParam == clip)
             {
 
                 ToggleParam(currentParam);
                 grader.epicValue += clipWeight;
-                Debug.Log(grader.epicValue);
             }
             else if (currentParam == cross)
             {
 
                 ToggleParam(currentParam);
                 grader.epicValue += crossWeight;
-                Debug.Log(grader.epicValue);
             }
             else if (currentParam == o_shownote)
             {
@@ -708,5 +705,16 @@ public class o_MixingBrain : MonoBehaviour
 
     }
 
+
+    private IEnumerator WaitForLoad()
+    {
+        yield return new WaitForSeconds(3);
+        csound.SendScoreEvent("i1 0 135 1");
+        csound.SendScoreEvent("i2 0 135 2");
+        csound.SendScoreEvent("i3 0 135 3");
+        csound.SendScoreEvent("i4 0 135 4");
+        csound.SendScoreEvent("i5 0 135");
+
+    }
     
 }

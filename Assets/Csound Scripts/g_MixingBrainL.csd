@@ -492,11 +492,6 @@ f 4  0 0    1   "g_bubbles_1.mp3" 0 0 0
 f 5 0 2048 20 2	;windowing function
 
 
-i 1 0 135 1
-i 2 0 135 2
-i 3 0 135 3
-i 4 0 135 4
-i 5 0 135
-e
+f0 z
 </CsScore>
 </CsoundSynthesizer>

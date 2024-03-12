@@ -478,20 +478,25 @@ endif
 
 amasterout1 = acomp1
 amasterout2 = acomp2
-    outs amasterout2*6, amasterout2*6
+    outs amasterout1*6, amasterout1*6
 endin
 
 
 </CsInstruments>
 <CsScore>
-f 1  0 0    1   "g_vox_1.mp3" 0 0 0
-f 2  0 0    1   "g_noise_1.mp3" 0 0 0
-f 3  0 0    1   "g_lead_1.mp3" 0 0 0
-f 4  0 0    1   "g_bubbles_1.mp3" 0 0 0
+f 1  0 0    1   "s_vox_1.mp3" 0 0 0
+f 2  0 0    1   "s_808_1.mp3" 0 0 0
+f 3  0 0    1   "s_chords_1.mp3" 0 0 0
+f 4  0 0    1   "s_drums_1.mp3" 0 0 0
 
 f 5 0 2048 20 2	;windowing function
 
 
-f0 z
+i 1 3 106 1
+i 2 3 106 2
+i 3 3 106 3
+i 4 3 106 4
+i 5 3 106
+e
 </CsScore>
 </CsoundSynthesizer>
