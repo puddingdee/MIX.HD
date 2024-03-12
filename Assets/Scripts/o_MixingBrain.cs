@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine;
 using csoundcsharp;
@@ -12,6 +12,7 @@ public class o_MixingBrain : MonoBehaviour
     [SerializeField] GameObject dlm2;
     [SerializeField] GameObject dlm3;
     [SerializeField] GameObject dlm4;
+    [SerializeField] int dlmWeight;
 
     [SerializeField] GameObject dlt1;
     [SerializeField] GameObject dlt2;
@@ -21,11 +22,15 @@ public class o_MixingBrain : MonoBehaviour
     [SerializeField] GameObject dlt2light;
     [SerializeField] GameObject dlt3light;
     [SerializeField] GameObject dlt4light;
+    [SerializeField] int dltWeight;
+
 
     [SerializeField] GameObject dist1;
     [SerializeField] GameObject dist2;
     [SerializeField] GameObject dist3;
     [SerializeField] GameObject dist4;
+    [SerializeField] int distWeight;
+
 
     [SerializeField] GameObject ex1;
     [SerializeField] GameObject ex2;
@@ -35,25 +40,36 @@ public class o_MixingBrain : MonoBehaviour
     [SerializeField] GameObject exW2;
     [SerializeField] GameObject exW3;
     [SerializeField] GameObject exW4;
+    [SerializeField] int exWeight;
+
 
     [SerializeField] GameObject fold1;
     [SerializeField] GameObject fold2;
     [SerializeField] GameObject fold3;
     [SerializeField] GameObject fold4;
+    [SerializeField] int foldWeight;
+
 
     [SerializeField] GameObject gain1;
     [SerializeField] GameObject gain2;
     [SerializeField] GameObject gain3;
     [SerializeField] GameObject gain4;
+    [SerializeField] int gainWeight;
+
 
     [SerializeField] GameObject cut1;
     [SerializeField] GameObject cut2;
     [SerializeField] GameObject cut3;
     [SerializeField] GameObject cut4;
+    [SerializeField] int cutWeight;
+
 
     [SerializeField] GameObject clip;
+    [SerializeField] int clipWeight;
     [SerializeField] GameObject clipLight;
     [SerializeField] GameObject cross;
+    [SerializeField] int crossWeight;
+
 
     [SerializeField] GameObject selecticle;
     [SerializeField] GameObject adjusticle;
@@ -67,8 +83,13 @@ public class o_MixingBrain : MonoBehaviour
     [SerializeField] GameObject soundCheck;
     [SerializeField] GameObject soundCheckInspecticle;
 
+    [SerializeField] GameObject backToMenu;
+
     [SerializeField] GameObject lightSwitch;
-    [SerializeField] GameObject darkticle;
+    [SerializeField] public GameObject darkticle;
+
+    [SerializeField] GameManager gameManager;
+
     private bool isDark = false;
 
     [SerializeField] float testZ;
@@ -96,6 +117,12 @@ public class o_MixingBrain : MonoBehaviour
     private CsoundUnity csound;
 
     public bool isCross = false;
+    public bool isInspecting = false;
+    public bool loading = false;
+    public int loadingIndex;
+
+    [SerializeField] private CameraController cam;
+    
 
     [SerializeField] Grader grader;
     
@@ -105,6 +132,8 @@ public class o_MixingBrain : MonoBehaviour
     void Start()
     {
         csound = GetComponent<CsoundUnity>();
+
+
         DLM_Y1 = dlm1.transform.position.y;
         DLM_Y2 = dlm2.transform.position.y;
         DLM_Y3 = dlm3.transform.position.y;
@@ -147,18 +176,29 @@ public class o_MixingBrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (!csound.IsInitialized) return;
+        if (csound.IsInitialized)
+        {
+            cam.csoundInit = true;
+        }
+        Debug.Log("please");
         Mouse mouse = Mouse.current;
 
         CheckForParam();
         if (mouse.leftButton.wasPressedThisFrame)
         {
             GameObject currentParam = GetClickedParameter();
-            if (currentParam == dlm1 || currentParam == dlm2 || currentParam == dlm3 || currentParam == dlm4)
+            
+            if (currentParam == null)
+            {
+                Debug.Log("asdf");
+            }
+            else if (currentParam == dlm1 || currentParam == dlm2 || currentParam == dlm3 || currentParam == dlm4)
             {
                 
                 ToggleParam(currentParam);
-                grader.epicValue += 1;
+                grader.epicValue += dlmWeight;
                 Debug.Log(grader.epicValue);
             }
             else if (currentParam == dlt1 || currentParam == dlt2 || currentParam == dlt3 || currentParam == dlt4)
@@ -166,76 +206,97 @@ public class o_MixingBrain : MonoBehaviour
 
                 StartCoroutine(DialDLT(currentParam));
                 adjusticle.SetActive(true);
-                grader.epicValue += 1;
-                Debug.Log(grader.epicValue);
+                grader.epicValue += dltWeight;
+                
             }
             else if (currentParam == dist1 || currentParam == dist2 || currentParam == dist3 || currentParam == dist4)
             {
 
                 StartCoroutine(DialDist(currentParam));
                 adjusticle.SetActive(true);
-                grader.epicValue += 5;
-                Debug.Log(grader.epicValue);
+                grader.epicValue += distWeight;
+                
             }
             else if (currentParam == ex1 || currentParam == ex2 || currentParam == ex3 || currentParam == ex4)
             {
 
                 ToggleParam(currentParam);
-                grader.epicValue += 2;
-                Debug.Log(grader.epicValue);
+                grader.epicValue += exWeight;
+                
             }
             else if (currentParam == fold1 || currentParam == fold2 || currentParam == fold3 || currentParam == fold4)
             {
 
                 StartCoroutine(DialFold(currentParam));
                 adjusticle.SetActive(true);
-                grader.epicValue += 3;
-                Debug.Log(grader.epicValue);
+                grader.epicValue += foldWeight;
             }
             else if (currentParam == gain1 || currentParam == gain2 || currentParam == gain3 || currentParam == gain4)
             {
-
+                Debug.Log("made it");
                 StartCoroutine(DialGain(currentParam));
                 adjusticle.SetActive(true);
-                Debug.Log(grader.epicValue);
             }
             else if (currentParam == cut1 || currentParam == cut2 || currentParam == cut3 || currentParam == cut4)
             {
-
+                Debug.Log("HOW");
                 StartCoroutine(DialCut(currentParam));
                 adjusticle.SetActive(true);
-                grader.epicValue -= 1;
-                Debug.Log(grader.epicValue);
+                grader.epicValue -= cutWeight;
             }
             else if (currentParam == clip)
             {
 
                 ToggleParam(currentParam);
-                grader.epicValue += 5;
-                Debug.Log(grader.epicValue);
+                grader.epicValue += clipWeight;
             }
             else if (currentParam == cross)
             {
 
                 ToggleParam(currentParam);
-                grader.epicValue -= 50;
-                Debug.Log(grader.epicValue);
+                grader.epicValue += crossWeight;
             }
             else if (currentParam == o_shownote)
             {
+                isInspecting = true;
                 o_inspecticle.SetActive(true);
             }
             else if (currentParam == s_shownote)
             {
+                isInspecting = true;
+
                 s_inspecticle.SetActive(true);
             }
             else if (currentParam == g_shownote)
             {
+                isInspecting = true;
+
                 g_inspecticle.SetActive(true);
             }
             else if (currentParam == soundCheck)
             {
+                isInspecting = true;
+
                 soundCheckInspecticle.SetActive(true);
+            }
+            else if (currentParam.name == "s_inspecticle" && !loading)
+            {
+                loadingIndex = 1;
+                loading = true;
+                
+                
+            }
+            else if (currentParam.name == "g_inspecticle" && !loading)
+            {
+                loadingIndex = 2;
+                loading = true;
+                
+                
+            }
+            else if (currentParam.name == "o_inspecticle" && !loading)
+            {
+                loadingIndex = 0;
+                loading = true;
             }
             else if (currentParam == lightSwitch)
             {
@@ -251,8 +312,9 @@ public class o_MixingBrain : MonoBehaviour
                 }
                 
             }
+
         }
-            
+        
         if (mouse.leftButton.wasReleasedThisFrame)
         {
             StopAllCoroutines();
@@ -261,11 +323,26 @@ public class o_MixingBrain : MonoBehaviour
         }
         if (mouse.rightButton.wasPressedThisFrame)
         {
-            o_inspecticle.SetActive(false);
-            s_inspecticle.SetActive(false) ;
-            g_inspecticle.SetActive(false ) ;
-            soundCheckInspecticle.SetActive(false );
+            if (isInspecting)
+            {
+                o_inspecticle.SetActive(false);
+                s_inspecticle.SetActive(false);
+                g_inspecticle.SetActive(false);
+                soundCheckInspecticle.SetActive(false);
+                backToMenu.SetActive(false);
+
+                isInspecting = false;
+
+            }
+            else
+            {
+                backToMenu.SetActive(true);
+                isInspecting = true;
+            }
+
         }
+
+
         
     }
 
@@ -600,11 +677,12 @@ public class o_MixingBrain : MonoBehaviour
 
             if (param == gain1)
             {
-                param.transform.localPosition = new Vector3(param.transform.localPosition.x, param.transform.localPosition.y, GAIN_Z1 - (0.3f * percentParam)+0.2f);
+                Debug.Log("here");
+                param.transform.localPosition = new Vector3(param.transform.localPosition.x, param.transform.localPosition.y, GAIN_Z1 - (0.3f * percentParam) + 0.2f);
             }
             else if (param == gain2)
             {
-                param.transform.localPosition = new Vector3(param.transform.localPosition.x, param.transform.localPosition.y, GAIN_Z2 - (0.3f * percentParam)+0.2f);
+                param.transform.localPosition = new Vector3(param.transform.localPosition.x, param.transform.localPosition.y, GAIN_Z2 - (0.3f * percentParam) + 0.2f);
 
             }
             else if (param == gain3)
@@ -670,5 +748,6 @@ public class o_MixingBrain : MonoBehaviour
 
     }
 
-    
+
+
 }

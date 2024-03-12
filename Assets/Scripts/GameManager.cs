@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public float o_BPM = 186;
-    public float o_TotalSongTime = 139;
+    public float BPM = 186;
+    public float totalSongTime = 139;
+    [SerializeField] private GameObject MixBrR;
+    [SerializeField] private GameObject MixBrL;
 
     // Start is called before the first frame update
     void Start()    
@@ -20,5 +22,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void TurnOffMixBr()
+    {
+        MixBrR.SetActive(false);
+        MixBrL.SetActive(false);
     }
 }

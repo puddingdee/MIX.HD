@@ -6,9 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/OutdoorsScene.unity
-    guid: 8124e5870f4fd4c779e7a5f994e84ad1
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/basement.unity
+    path: Assets/Scenes/Main Menu.unity
+    guid: ea9f3fb4cae1c744c9678d2a636ba624
+  - enabled: 1
+    path: Assets/Scenes/o_basement.unity
     guid: 81031ee9bd773c04089a691745a51b07
+  - enabled: 1
+    path: Assets/Scenes/s_basement.unity
+    guid: 2d9618d9f6a353541824bb1f7219884a
+  - enabled: 1
+    path: Assets/Scenes/g_basement.unity
+    guid: cebdad1d323aac14a9dad8f6049935bf
   m_configObjects: {}
