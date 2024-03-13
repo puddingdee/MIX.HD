@@ -7806,16 +7806,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: WORSE THAN DEATH ITSELF
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da69b7052e3fa6b49a54ba3098ee7346, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -4464119275196512935, guid: da69b7052e3fa6b49a54ba3098ee7346,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4281062580
   m_fontColor: {r: 0.70540994, g: 0.8301887, b: 0.16838734, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -7898,10 +7899,10 @@ RectTransform:
   m_Father: {fileID: 96548496}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -544.44995, y: 0}
-  m_SizeDelta: {x: 1088.8999, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 310.44, y: -234.83997}
+  m_SizeDelta: {x: 569.5, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &632598550
 GameObject:
@@ -19336,7 +19337,17 @@ MonoBehaviour:
   loudVolumeWarning: 1
   loudWarningThreshold: 10
   csoundScore: 
-  environmentSettings: []
+  environmentSettings:
+  - platform: 1
+    type: 0
+    baseFolder: 1
+    suffix: 
+    foldout: 1
+  - platform: 0
+    type: 0
+    baseFolder: 1
+    suffix: 
+    foldout: 1
   _csoundFileGUID: f6ff2b24ed312d743b956e895202cf90
   _csoundString: "<Cabbage>\r\nform caption(\"gain\")\r\nrslider channel(\"gain1\"),
     text(\"vox fader\"), range(0, 1, 0.7)\r\n\r\nform caption(\"gain\")\r\nrslider

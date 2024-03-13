@@ -72,9 +72,9 @@ public class CameraController : MonoBehaviour
         bassSource.GetOutputData(bassSamples, 0);
         for (int a = 32; a < bassSamples.Length; a++)
         {
-            float random = Random.Range(-0.1f, 0.1f);
-            float random1 = Random.Range(-0.1f, 0.1f);
-            float random2 = Random.Range(-0.1f, 0.1f);
+            float random = Random.Range(-0.2f, 0.2f);
+            float random1 = Random.Range(-0.2f, 0.2f);
+            float random2 = Random.Range(-0.2f, 0.2f);
 
             
 
@@ -101,13 +101,13 @@ public class CameraController : MonoBehaviour
         while (csoundTime <= 144000)
         {
             
-            Debug.Log(csoundTime);
+            //Debug.Log(csoundTime);
             yield return null;
         }
 
         yield return null;
         bassSource.Play();
-        Debug.Log("playing bass");
+        //Debug.Log("playing bass");
     }
 
 

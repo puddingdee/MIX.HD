@@ -50,11 +50,11 @@ public class Grader : MonoBehaviour
 
         if (epicDisparity < 10)
         {
-            finalGrade = "MONUMENTAL";
+            finalGrade = "MONUMENTAL.";
         }
         else if (epicDisparity < 50)
         {
-            finalGrade = "SATISFACTORY";
+            finalGrade = "SATISFACTORY.";
         }
         else if (epicDisparity < 100)
         {
@@ -62,26 +62,26 @@ public class Grader : MonoBehaviour
         }
         else if (epicDisparity < 150)
         {
-            finalGrade = "FORGETTABLE";
+            finalGrade = "FORGETTABLE.";
         }
         else if (epicDisparity < 200)
         {
-            finalGrade = "INEXCUSABLE";
+            finalGrade = "INEXCUSABLE.";
         }
         else if (epicDisparity >= 200)
         {
-            finalGrade = "WORSE THAN DEATH ITSELF";
+            finalGrade = "WORSE THAN DEATH ITSELF.";
         }
         if (SceneManager.GetActiveScene().name == "g_basement")
         {
             epicDisparity = Random.Range(0, 250);
             if (epicDisparity < 10)
             {
-                finalGrade = "MONUMENTAL";
+                finalGrade = "MONUMENTAL.";
             }
             else if (epicDisparity < 50)
             {
-                finalGrade = "SATISFACTORY";
+                finalGrade = "SATISFACTORY.";
             }
             else if (epicDisparity < 100)
             {
@@ -89,15 +89,15 @@ public class Grader : MonoBehaviour
             }
             else if (epicDisparity < 150)
             {
-                finalGrade = "FORGETTABLE";
+                finalGrade = "FORGETTABLE.";
             }
             else if (epicDisparity < 200)
             {
-                finalGrade = "INEXCUSABLE";
+                finalGrade = "INEXCUSABLE.";
             }
             else if (epicDisparity >= 200)
             {
-                finalGrade = "WORSE THAN DEATH ITSELF";
+                finalGrade = "WORSE THAN DEATH ITSELF.";
             }
         }
         StartCoroutine(DisplayGrade());
@@ -118,7 +118,7 @@ public class Grader : MonoBehaviour
         yield return new WaitForSeconds(5);
         mixBr.darkticle.SetActive(false);
 
-        text.SetText("CHOOSE ANOTHER BAND. SHOW NOTES ARE ON THE BACK WALL");
+        text.SetText("CHOOSE ANOTHER BAND. SHOW NOTES ARE ON THE BACK WALL.");
         //TODO go back to sound check
 
     }

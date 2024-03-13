@@ -8145,7 +8145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: WORSE THAN DEATH ITSELF
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da69b7052e3fa6b49a54ba3098ee7346, type: 2}
   m_sharedMaterial: {fileID: -4464119275196512935, guid: da69b7052e3fa6b49a54ba3098ee7346,
@@ -8173,8 +8173,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8238,10 +8238,10 @@ RectTransform:
   m_Father: {fileID: 96548496}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -544.44995, y: 0}
-  m_SizeDelta: {x: 1088.8999, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 310.44, y: -234.83998}
+  m_SizeDelta: {x: 620.88, y: -469.68002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &816457122
 GameObject:
